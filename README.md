@@ -18,6 +18,7 @@ A deep learning model that automatically colorizes grayscale images using a CNN 
 - [Installation](#-installation)
 - [Training](#-training)
 - [Colorizing Images](#-colorizing-images)
+- [Sample Results](#-sample-results)
 - [GPU Optimizations](#-gpu-optimizations)
 - [Configuration](#%EF%B8%8F-configuration)
 - [License](#-license)
@@ -68,6 +69,9 @@ image-colorizer/
 │   ├── image_preprocess/
 │   │   └── preprocess_image.py  # RGB → LAB conversion & normalization
 │   └── __init__.py
+├── samples/                  # Input/output sample images
+│   ├── home-bw-00034.webp
+│   └── colorized_home-bw-00034.webp
 ├── dataset/                  # Auto-downloaded COCO val2017 (gitignored)
 ├── checkpoints/              # Saved model weights (gitignored)
 ├── requirements.txt
@@ -288,6 +292,25 @@ Merging generated colors back together...
 ```
 
 > **💡 Tip:** The model accepts any image — it doesn't have to be grayscale. Color images are automatically converted to grayscale (L channel) before colorization.
+
+---
+
+## 🖼 Sample Results
+
+Here's a real example showing what the model can do — a grayscale photograph colorized by the trained network:
+
+<table>
+  <tr>
+    <th>Input (Grayscale)</th>
+    <th>Output (Colorized)</th>
+  </tr>
+  <tr>
+    <td><img src="samples/home-bw-00034.webp" alt="Grayscale input — elephant under a tree" width="400"></td>
+    <td><img src="samples/colorized_home-bw-00034.webp" alt="Colorized output — elephant under a tree" width="400"></td>
+  </tr>
+</table>
+
+> The model adds natural greens to the foliage and grass, warm earth tones to the elephant, and blue hues to the sky — all from a single grayscale input.
 
 ---
 
