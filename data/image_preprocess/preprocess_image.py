@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from skimage.color import rgb2lab
 
-def preprocess_images(data_dir, files, image_size=IMAGE_SIZE):
+def preprocess_images(data_dir, files, image_size=256):
     L_inputs = []
     AB_targets = []
 
@@ -31,8 +31,8 @@ def preprocess_images(data_dir, files, image_size=IMAGE_SIZE):
         L  = img_lab[:, :, 0]          # Shape: (256, 256)   Range: [0, 100]
         AB = img_lab[:, :, 1:]         # Shape: (256, 256, 2) Range: [-128, 127]
 
-        # Normalize L to [0, 1]
-        L_norm = L / 100.0
+        # L channel stays raw [0, 100] — the model normalizes internally via x / 100.0
+        L_norm = L
 
         # Normalize AB to [-1, 1]
         AB_norm = AB / 128.0
