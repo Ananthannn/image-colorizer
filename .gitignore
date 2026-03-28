@@ -216,5 +216,6 @@ checkpoints/
 *.pth
 *.keras
 
-# Colorized output images
+# Colorized output images (except samples/)
 colorized_*
+!samples/colorized_*
